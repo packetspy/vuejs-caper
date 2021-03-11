@@ -1,5 +1,10 @@
 # caper
 
+
+## Referências
+Vue 3, Vuex 4 Modules, Typescript [Link/Tutorial](https://dev.to/shubhadip/vue-3-vuex-4-modules-typescript-2i2o)
+
+
 ## Project setup
 ```
 yarn install
