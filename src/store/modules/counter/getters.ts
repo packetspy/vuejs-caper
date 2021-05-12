@@ -1,19 +1,16 @@
 import { GetterTree } from "vuex";
-import {
-  CounterGettersTypes,
-  CounterStateTypes,
-  IRootState
-} from "@/store/interfaces";
+import { CounterGettersTypes, ICounterStateTypes } from "./interfaceCounter";
+import { IRootState } from "@/store/interfaces"
 
-export const getters: GetterTree<CounterStateTypes, IRootState> &
+export const getters: GetterTree<ICounterStateTypes, IRootState> &
   CounterGettersTypes = {
-  counterValue: (state: CounterStateTypes) => {
+  counterValue: (state: ICounterStateTypes) => {
     return state.counter || 0;
   },
-  doubledCounter: (state: CounterStateTypes) => {
+  doubledCounter: (state: ICounterStateTypes) => {
     return state.counter || 0 * 2;
   },
-  getRootDispatch: (state: CounterStateTypes) => {
+  getRootDispatch: (state: ICounterStateTypes) => {
     return state.rootDispatch || false;
   }
 };

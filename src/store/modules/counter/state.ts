@@ -1,5 +1,6 @@
-import { CounterStateTypes } from "@/store/interfaces";
+import { ICounterStateTypes } from "./interfaceCounter";
 
-export const state: CounterStateTypes = {
-  counter: 0
+export const state: ICounterStateTypes = {
+  counter: 0,
+  transactions: []
 };

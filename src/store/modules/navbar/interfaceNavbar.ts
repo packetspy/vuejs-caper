@@ -22,13 +22,13 @@ export interface INavbarGettersTypes {
   getSidebarStatus(state: INavbarStateTypes): boolean;
 }
 
-export type INavbarMutationsTypes<S = INavbarStateTypes> = {
+export type NavbarMutationsTypes<S = INavbarStateTypes> = {
   [NavbarMTypes.SIDEBAR_OPEN](state: S, payload?: boolean): void;
 };
 
 export type AugmentedActionContext = {
-  commit<K extends keyof INavbarMutationsTypes>(
+  commit<K extends keyof NavbarMutationsTypes>(
     key: K,
-    payload: Parameters<INavbarMutationsTypes[K]>[1]
-  ): ReturnType<INavbarMutationsTypes[K]>;
+    payload: Parameters<NavbarMutationsTypes[K]>[1]
+  ): ReturnType<NavbarMutationsTypes[K]>;
 } & Omit<ActionContext<INavbarStateTypes, IRootState>, "commit">;

@@ -1,12 +1,12 @@
 import {
-  CounterStateTypes,
+  ICounterStateTypes,
   CounterMutationsTypes,
   CounterGettersTypes,
-  CounterActionsTypes
-} from "@/store/interfaces";
+  ICounterActionsTypes
+} from "./interfaceCounter";
 import { Store as VuexStore, CommitOptions, DispatchOptions } from "vuex";
 
-export type CounterStoreModuleTypes<S = CounterStateTypes> = Omit<
+export type CounterStoreModuleTypes<S = ICounterStateTypes> = Omit<
   VuexStore<S>,
   "commit" | "getters" | "dispatch"
 > & {
@@ -23,9 +23,9 @@ export type CounterStoreModuleTypes<S = CounterStateTypes> = Omit<
     [K in keyof CounterGettersTypes]: ReturnType<CounterGettersTypes[K]>;
   };
 } & {
-  dispatch<K extends keyof CounterActionsTypes>(
+  dispatch<K extends keyof ICounterActionsTypes>(
     key: K,
-    payload?: Parameters<CounterActionsTypes[K]>[1],
+    payload?: Parameters<ICounterActionsTypes[K]>[1],
     options?: DispatchOptions
-  ): ReturnType<CounterActionsTypes[K]>;
+  ): ReturnType<ICounterActionsTypes[K]>;
 };
